@@ -1,0 +1,249 @@
+/* ===== Farben & Grundwerte ===== */
+:root {
+  --schnee:   #F8FAFA;  /* Hintergrund */
+  --fels:     #2B3438;  /* Text */
+  --zirbe:    #274A3C;  /* Akzent, Links */
+  --gletscher:#DCE6E8;  /* Platzhalter-Flächen */
+  --nebel:    #6B777C;  /* Nebentext */
+
+  --schrift-titel: "Avenir Next", Avenir, "Nunito Sans", system-ui, sans-serif;
+  --schrift-text:  "Avenir Next", Avenir, "Nunito Sans", system-ui, sans-serif;
+
+  --breite: 72rem;      /* maximale Inhaltsbreite */
+  --abstand: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* ===== Grundlagen ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--schnee);
+  color: var(--fels);
+  font-family: var(--schrift-text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img { display: block; max-width: 100%; }
+
+h1, h2 {
+  font-family: var(--schrift-titel);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+h1 { font-size: clamp(2.5rem, 7vw, 5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+
+a { color: var(--zirbe); }
+a:focus-visible {
+  outline: 2px solid var(--zirbe);
+  outline-offset: 3px;
+}
+
+/* ===== Kopfbereich ===== */
+.kopf {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem var(--abstand);
+}
+.kopf a { color: #fff; text-decoration: none; }
+.logo { font-family: var(--schrift-titel); font-size: 1.25rem; }
+.kopf ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.kopf nav a:hover { text-decoration: underline; }
+.kopf a:focus-visible { outline-color: #fff; }
+
+/* ===== Titelbild ===== */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-end;
+  background: var(--zirbe);            /* sichtbar, solange kein Bild da ist */
+  color: #fff;
+  overflow: hidden;
+}
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero::after {                          /* Abdunklung unten, damit Text lesbar bleibt */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.55), transparent 55%);
+}
+.hero-text {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: var(--abstand);
+}
+.hero-text p { margin: 0; font-size: 1.25rem; }
+
+/* ===== Einleitung & Textabschnitte ===== */
+.intro,
+.text-abschnitt {
+  max-width: var(--breite);                  /* angenehme Zeilenlänge */
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) var(--abstand);
+}
+.intro p { font-size: 1.3rem; }
+
+/* ===== Galerie ===== */
+.galerie {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 0 var(--abstand) clamp(3rem, 8vw, 6rem);
+}
+.raster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  grid-auto-rows: 16rem;
+  grid-auto-flow: dense;
+  gap: 0.75rem;
+}
+.raster figure {
+  position: relative;
+  margin: 0;
+  background: var(--gletscher);
+  overflow: hidden;
+}
+.raster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.raster figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: #fff;
+  background: rgba(0,0,0,.45);
+}
+.raster .breit { grid-column: span 2; }
+.raster .hoch  { grid-row: span 2; }
+
+/* ===== Fußbereich ===== */
+.fuss {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem var(--abstand);
+  border-top: 1px solid var(--gletscher);
+  color: var(--nebel);
+  font-size: 0.9rem;
+}
+.fuss p { margin: 0; }
+
+/* ===== Handy ===== */
+@media (max-width: 600px) {
+  .raster { grid-template-columns: 1fr; }
+  .raster .breit { grid-column: auto; }
+  .hero { min-height: 75vh; }
+}
+
+/* ===== Bild-Popup ===== */
+.raster img { cursor: zoom-in; }
+
+#lightbox {
+  max-width: 95vw;
+  max-height: 95vh;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: visible;
+}
+#lightbox::backdrop { background: rgba(0, 0, 0, .85); }
+#lightbox img {
+  max-width: 95vw;
+  max-height: 85vh;
+  object-fit: contain;
+  cursor: zoom-out;
+}
+.bildtext {
+  margin: .75rem 0 0;
+  color: #fff;
+  text-align: center;
+}
+.schliessen {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ===== Sommer / Winter ===== */
+body:not(.winter-modus) .winter,
+body.winter-modus .sommer { display: none; }
+
+body.winter-modus { --zirbe: #2F5566; }   /* Akzentfarbe im Winter, optional */
+
+.kopf ul { align-items: center; }
+
+.schalter {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: #fff;
+  cursor: pointer;
+}
+.schalter input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.schalter-bahn {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 1.4rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, .35);
+  transition: background .2s;
+}
+.schalter-bahn::after {
+  content: "";
+  position: absolute;
+  top: .2rem;
+  left: .2rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform .2s;
+}
+.schalter input:checked + .schalter-bahn { background: #8FB8C9; }
+.schalter input:checked + .schalter-bahn::after { transform: translateX(1.1rem); }
+.schalter input:focus-visible + .schalter-bahn {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

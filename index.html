@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kitzbühel &amp; title</title>
+  <meta name="description" content="Fotos aus Kitzbühel und den Tiroler Bergen.">
+
+  <!-- Avenir Next ist auf Apple-Geräten vorinstalliert.
+       Nunito Sans ist der ähnliche Ersatz für Windows und Android. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Bilder/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="Bilder/favicon.png">
+</head>
+
+<body>
+
+  <!-- Kopfbereich mit Navigation -->
+  <header class="kopf">
+    <a class="logo" href="#">marietta.tirol</a>
+    <nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#ueber">Über mich</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li>
+          <label class="schalter">
+            <span>Sommer</span>
+            <input type="checkbox" id="winter-schalter" role="switch">
+            <span class="schalter-bahn" aria-hidden="true"></span>
+            <span>Winter</span>
+          </label>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Großes Titelbild: je ein Bild für Sommer und Winter -->
+    <section class="hero">
+      <img class="sommer" src="Bilder/Foto_09.JPG" alt="Beschreibung des Sommerbilds" onerror="this.hidden=true">
+      <img class="winter" src="Bilder/Winter/Foto_23.JPG" alt="Beschreibung des Winterbilds" loading="lazy" onerror="this.hidden=true">
+      <div class="hero-text">
+        <h1>Reith bei Kitzbühel</h1>
+        <p></p>
+      </div>
+    </section>
+
+    <!-- Einleitung -->
+    <section class="intro">
+      <p>I 💙 Fotos, Filme, Berge und Natur.</p>
+    </section>
+
+    <!-- Fotogalerie: Klasse "breit" oder "hoch" für größere Bilder -->
+    <section id="galerie" class="galerie">
+      <h2>Galerie</h2>
+
+      <!-- Sommer -->
+      <div class="raster sommer">
+        <figure class="hoch">
+          <img src="Bilder/Foto_01.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure>
+          <img src="Bilder/Foto_02.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Foto_03.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Foto_04.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure>
+          <img src="Bilder/Foto_05.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="breit">
+          <img src="Bilder/Foto_06.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="breit">
+          <img src="Bilder/Foto_07.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="breit">
+          <img src="Bilder/Foto_10.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="breit">
+          <img src="Bilder/Foto_11.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+      </div>
+
+      <!-- Winter -->
+      <div class="raster winter">
+        <figure class="hoch">
+          <img src="Bilder/Winter/Foto_12.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Winter/Foto_13.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Winter/Foto_14.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Winter/Foto_15.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Winter/Foto_16.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Winter/Foto_17.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="breit">
+          <img src="Bilder/Winter/Foto_18.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="breit">
+          <img src="Bilder/Winter/Foto_19.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Winter/Foto_20.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="breit">
+          <img src="Bilder/Winter/Foto_21.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="breit">
+          <img src="Bilder/Winter/Foto_22.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+        <figure class="hoch">
+          <img src="Bilder/Winter/Foto_25.JPG" alt="Bildbeschreibung" loading="lazy" onerror="this.hidden=true">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Über mich -->
+    <section id="ueber" class="text-abschnitt">
+      <h2>Über mich</h2>
+      <p>Producer, Regisseurin, Autorin</p>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="text-abschnitt">
+      <h2>Kontakt</h2>
+      <p><a href="mailto:kontakt@marietta.tirol">kontakt@marietta.tirol</a></p>
+      <p><a href="mailto:contact@marietta.tirol">contact@marietta.tirol</a></p>
+    </section>
+
+  </main>
+
+  <footer class="fuss">
+    <p>© 2026 Marietta Gottfried</p>
+    <a href="impressum.html">Impressum</a>
+  </footer>
+
+  <!-- Bild-Popup -->
+  <dialog id="lightbox" aria-label="Bildansicht">
+    <button class="schliessen" aria-label="Schließen">×</button>
+    <img src="" alt="">
+    <p class="bildtext"></p>
+  </dialog>
+
+  <script>
+    /* ----- Bild-Popup ----- */
+    const lightbox = document.getElementById('lightbox');
+    const grossBild = lightbox.querySelector('img');
+    const bildtext = lightbox.querySelector('.bildtext');
+
+    document.querySelectorAll('.raster img').forEach(img => {
+      img.tabIndex = 0;
+      const oeffnen = () => {
+        grossBild.src = img.src;
+        grossBild.alt = img.alt;
+        const caption = img.closest('figure').querySelector('figcaption');
+        bildtext.textContent = caption ? caption.textContent : '';
+        lightbox.showModal();
+      };
+      img.addEventListener('click', oeffnen);
+      img.addEventListener('keydown', e => { if (e.key === 'Enter') oeffnen(); });
+    });
+
+    lightbox.addEventListener('click', () => lightbox.close());
+
+    /* ----- Sommer / Winter ----- */
+    const schalter = document.getElementById('winter-schalter');
+    const setzeModus = winter => {
+      document.body.classList.toggle('winter-modus', winter);
+      schalter.checked = winter;
+    };
+
+    try { setzeModus(localStorage.getItem('jahreszeit') === 'winter'); } catch (e) {}
+
+    schalter.addEventListener('change', () => {
+      setzeModus(schalter.checked);
+      try { localStorage.setItem('jahreszeit', schalter.checked ? 'winter' : 'sommer'); } catch (e) {}
+    });
+  </script>
+
+</body>
+</html>
